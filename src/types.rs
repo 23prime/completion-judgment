@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 use std::fmt::{Display, Formatter, Result};
 
 pub type Code      = String; //科目番号

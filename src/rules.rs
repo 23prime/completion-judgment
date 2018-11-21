@@ -1,6 +1,3 @@
-#![allow(dead_code, unused_imports)]
-
-use csv::*;
 use types::*;
 
 use std::collections::HashMap;
@@ -22,10 +19,10 @@ pub fn require() -> Require {
 }
 
 pub fn mk_group(cd: &Code) -> Group {
-    let (f, a) = cd.split_at(3);
-    let (b, cs) = a.split_at(1);
+    let (f, a)        = cd.split_at(3);
+    let (b, cs)       = a.split_at(1);
     let cs: Vec<char> = cs.chars().collect();
-    let c = cs[0];
+    let c             = cs[0];
 
     if f != "01B" {
         return "その他".to_string();
@@ -58,7 +55,7 @@ fn find_term_index (s: &str, ss: &Vec<String>) -> usize  {
 }
 
 pub fn mk_credit(ss: &Vec<String>, ds: &Vec<String>) -> Credit {
-    let cd = &ds[find_term_index("科目番号", &ss)];
+    let cd    = &ds[find_term_index("科目番号", &ss)];
     let title = &ds[find_term_index("科目名", &ss)];
     let grade = &ds[find_term_index("総合評価", &ss)];
 
