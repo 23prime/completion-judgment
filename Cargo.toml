@@ -1,0 +1,6 @@
+[package]
+name = "completion-judgment"
+version = "0.1.0"
+authors = ["23prime <hogehoge@gmail.com>"]
+
+[dependencies]
