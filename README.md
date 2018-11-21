@@ -17,7 +17,7 @@ Judge whether your credits are enough to complete graduate or not.
 $ cargo run ./seiseki.csv
 ```
 
-- If completion requirement is changed, edit `src/Rules.hs`.
+- If completion requirement is changed, edit `src/rules.rs`.
 
 
 ## About CSV data

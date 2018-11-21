@@ -167,7 +167,7 @@ fn judge(cds: &Credits, req: &Require) -> bool {
 // Result whether shuryo or not.
 fn get_result(cds: &Credits, req: &Require) -> String {
     let rlt = if judge(cds, req) {
-        "修了です．おめでとう！"
+        "修了です．おめでとう🎉🎉🎉"
     } else {
         "留年！ｗ"
     };
