@@ -38,3 +38,8 @@ $ cargo run ./seiseki.csv
 - Now, ignoring "科目コード" and judging from "科目番号".
 - English ver. has different specification from Japanese, so now not supported.
 - If specification of CSV changed, then edit `mk_credit` in `src/rules.rs`.
+
+## ToDo
+- Fix comments.
+- Now, there are type casts `Vec -> Iterator -> Vec` in some functions.  
+  So, these fix to only `Iterator`.
