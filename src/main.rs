@@ -25,11 +25,11 @@ fn main() {
     println!("[修了要件]");
 
     for (grp, cdn) in &req {
-        print_group_num(grp.clone(), cdn.clone());
+        print_group_num(grp, *cdn);
     }
     
     let sum_req: f64 = req.iter()
-                          .map(|(_, cdn)| cdn.clone())
+                          .map(|(_, cdn)| cdn)
                           .sum();
     println!("計: {} 単位", sum_req);
 
@@ -37,7 +37,7 @@ fn main() {
 
     let grps = mk_groups(&req);
     for grp in grps {
-        print_group_num2(&cds, grp);
+        print_group_num2(&cds, &grp);
     }
 
     let sum_cdn = count_credit_num(&cds);
@@ -53,16 +53,16 @@ fn main() {
         println!("無し！");
     } else {
         for (grp, cdn) in shorts {
-            print_group_num(grp, cdn);
+            print_group_num(&grp, cdn);
         }
     }
 }
 
-fn print_group_num(grp: Group, cdn: CreditNum) -> () {
+fn print_group_num(grp: &Group, cdn: CreditNum) -> () {
     println!("{}: {} 単位", grp, cdn);
 }
 
-fn print_group_num2(cds: &Credits, grp: Group) -> () {
+fn print_group_num2(cds: &Credits, grp: &Group) -> () {
     let fcds  = filter_group(cds.clone(), &grp);
     let count = count_credit_num(&fcds);
 
@@ -165,7 +165,7 @@ fn judge_groups(cds: &Credits, req: &Require) -> Vec<(Group, bool, CreditNum)> {
 fn judge(cds: &Credits, req: &Require) -> bool {
     let jdgs = judge_groups(cds, req);
     let jdg  = jdgs.iter()
-                   .map(|(_, b, _)| b.clone())
+                   .map(|(_, b, _)| *b)
                    .all(|b| b);
 
     return jdg;

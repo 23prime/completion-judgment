@@ -4,8 +4,7 @@ pub fn csv_reader(s: &str) -> CSV {
     let csv: CSV = s.split('\n')
                    .map(|x|
                        x.split(',')
-                        .map(|y| y.trim_matches('"')
-                        .trim().to_string())
+                        .map(|y| y.trim_matches('"').trim().to_string())
                         .collect()
                    )
                    .collect();
